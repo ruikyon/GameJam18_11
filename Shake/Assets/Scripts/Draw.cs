@@ -41,4 +41,9 @@ public class Draw : MonoBehaviour {
         else if (y > z && y>1) Debug.Log("max: y");
         else if(z>1) Debug.Log("max: z");
     }
+
+    private void OnApplicationQuit()
+    {
+        receiver.UdpFinish();
+    }
 }

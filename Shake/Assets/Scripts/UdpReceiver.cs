@@ -30,6 +30,12 @@ public class UdpReceiver
         thread.Start();
     }
 
+    public void UdpFinish()
+    {
+        thread.Abort();
+        udp.Close();
+    }
+
     private static void ThreadMethod()
     {
         while (true)
@@ -67,11 +73,5 @@ public class UdpReceiver
                 Debug.Log(ice);
             }
         }
-    }
-
-    void OnApplicationQuit()
-    {
-        thread.Abort();
-        udp.Close();
     }
 }
